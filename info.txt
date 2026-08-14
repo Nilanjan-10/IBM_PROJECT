@@ -1,0 +1,83 @@
+FITLOG - WORKOUT TRACKER
+=========================
+
+WHAT IS THIS APP?
+------------------
+FitLog is a single-page web application that helps a user log their gym
+workouts and stay consistent over time. It is built using plain HTML, CSS,
+and JavaScript (no frameworks, no backend) to demonstrate core front-end
+fundamentals: DOM manipulation, event handling, localStorage persistence,
+and dynamic UI rendering.
+
+The idea behind the app is simple: most people quit the gym not because
+they don't know what to do, but because they lose track of consistency.
+FitLog focuses on two things - logging a workout in a few seconds, and
+visually showing the user how consistent they have been.
+
+
+HOW THE APP WORKS
+-------------------
+1. LOGGING A SET
+   The user fills a short form (exercise name, weight in kg, reps, sets)
+   and submits it. Each entry is saved with the exercise name, numbers,
+   the date, and a timestamp.
+
+2. DATA STORAGE
+   All entries are stored in the browser's localStorage under the key
+   "fitlog_entries". This means the data stays on the user's own device
+   and is available even after closing and reopening the browser. There
+   is no server or database involved.
+
+3. TODAY'S LOG
+   The app filters all saved entries and shows only today's sets in a
+   list, with an option to delete any entry.
+
+4. STATS SECTION
+   On every update, the app recalculates:
+     - Total workouts logged (all-time)
+     - Total volume lifted (weight x reps x sets, summed)
+     - Number of distinct days trained in the last 7 days
+     - The heaviest single lift recorded
+
+5. STREAK COUNTER
+   The app checks, day by day going backwards from today, whether the
+   user logged at least one set. It counts consecutive days to show the
+   user's current streak in the top bar.
+
+6. 35-DAY HEATMAP
+   Similar to a GitHub contribution graph, this section renders the last
+   35 days as small squares. Days with more sets logged appear in a
+   brighter shade, giving a quick visual of consistency.
+
+7. MOTIVATIONAL QUOTE
+   A rotating quote is shown at the top of the page (a "Next quote"
+   button cycles through a small built-in list), tying into the
+   motivational theme of staying consistent.
+
+8. EXERCISE AUTOCOMPLETE
+   As the user logs more exercises, their names are remembered and
+   suggested automatically the next time (via an HTML datalist), so
+   repeated exercises like "Bench Press" or "Squat" don't need to be
+   retyped from scratch.
+
+
+FILES IN THIS PROJECT
+------------------------
+- index.html  -> Page structure (form, stats section, heatmap, log list)
+- style.css   -> Dark, gym-inspired theme, layout, and responsiveness
+- script.js   -> All app logic: saving/loading data, calculating stats,
+                 rendering the heatmap, streak logic, and form handling
+- info.txt    -> This file
+
+
+TECH USED
+-----------
+HTML5, CSS3 (Flexbox + Grid), Vanilla JavaScript (ES6), Browser
+localStorage API. No external libraries or frameworks.
+
+
+HOW TO RUN IT
+----------------
+Just open index.html in any modern browser. No installation, no server,
+and no internet connection required (the fonts load from Google Fonts,
+but the app still works offline with a fallback system font).

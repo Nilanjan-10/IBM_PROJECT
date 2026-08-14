@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitLog — Workout Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">FL</span>
+      <span class="brand-name">FitLog</span>
+    </div>
+    <div class="streak-chip" id="streakChip">
+      <span class="streak-num" id="streakNum">0</span>
+      <span class="streak-label">day streak</span>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <p class="eyebrow">Quote of the session</p>
+      <h1 id="quoteText">Discipline is choosing between what you want now and what you want most.</h1>
+      <button class="ghost-btn" id="newQuoteBtn">Next quote →</button>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats" id="statsGrid">
+      <div class="stat-card">
+        <span class="stat-value" id="statTotal">0</span>
+        <span class="stat-key">workouts logged</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="statVolume">0</span>
+        <span class="stat-key">kg total volume</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="statWeek">0</span>
+        <span class="stat-key">sessions this week</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="statBest">—</span>
+        <span class="stat-key">heaviest lift</span>
+      </div>
+    </section>
+
+    <!-- HEATMAP -->
+    <section class="heatmap-section">
+      <div class="section-head">
+        <h2>Last 35 days</h2>
+        <p class="section-sub">Every filled square is a day you showed up.</p>
+      </div>
+      <div class="heatmap" id="heatmap"></div>
+    </section>
+
+    <div class="split">
+      <!-- LOG FORM -->
+      <section class="log-panel">
+        <div class="section-head">
+          <h2>Log a set</h2>
+          <p class="section-sub">Exercise, weight, reps. Keep it quick.</p>
+        </div>
+        <form id="logForm" class="log-form">
+          <div class="field">
+            <label for="exerciseInput">Exercise</label>
+            <input type="text" id="exerciseInput" placeholder="e.g. Bench Press" required list="exerciseList">
+            <datalist id="exerciseList"></datalist>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="weightInput">Weight (kg)</label>
+              <input type="number" id="weightInput" min="0" step="0.5" placeholder="0" required>
+            </div>
+            <div class="field">
+              <label for="repsInput">Reps</label>
+              <input type="number" id="repsInput" min="1" step="1" placeholder="0" required>
+            </div>
+            <div class="field">
+              <label for="setsInput">Sets</label>
+              <input type="number" id="setsInput" min="1" step="1" value="1" required>
+            </div>
+          </div>
+          <button type="submit" class="primary-btn">Add entry</button>
+        </form>
+      </section>
+
+      <!-- LOG LIST -->
+      <section class="history-panel">
+        <div class="section-head">
+          <h2>Today's log</h2>
+          <p class="section-sub" id="todayDate"></p>
+        </div>
+        <ul class="entry-list" id="entryList">
+          <li class="empty-state">No sets logged yet today. Add your first one.</li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>FitLog — built with HTML, CSS &amp; JS. Data stays on this device.</p>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
